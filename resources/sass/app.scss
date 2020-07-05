@@ -1,0 +1,21 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+.btn.btn-outline-dark.product-price {
+    cursor: default;
+
+    &:focus {
+        box-shadow: none;
+    }
+
+    &:hover {
+        color: #343a40;
+        background-color: transparent;
+    }
+}
