@@ -53,6 +53,10 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'name' => 'required',
+        ]);
+
         $category = new Category;
 
         $category->name          = $request->input('name');
@@ -112,6 +116,11 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $slug)
     {
+
+        $this->validate($request, [
+            'name' => 'required',
+        ]);
+        
         $category = Category::where('slug', $slug)->first();
 
         $category->name = $request->input('name');

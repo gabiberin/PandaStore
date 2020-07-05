@@ -56,6 +56,15 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+
+        $this->validate($request, [
+            'name' => 'required',
+            'description' => 'required',
+            'price' => 'required',
+            'image_url' => 'required',
+            'product_categories' => 'required'
+        ]);
+
         $product = new Product;
 
         $product->name          = $request->input('name');
@@ -125,6 +134,15 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        $this->validate($request, [
+            'name' => 'required',
+            'description' => 'required',
+            'price' => 'required',
+            'image_url' => 'required',
+            'product_categories' => 'required'
+        ]);
+
         $product = Product::find($id);
 
         $product->name          = $request->input('name');

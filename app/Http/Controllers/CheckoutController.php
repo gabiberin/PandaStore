@@ -62,6 +62,17 @@ class CheckoutController extends Controller
      */
     public function store(Request $request)
     {
+
+        $this->validate($request, [
+            'shipping_first_name' => 'required',
+            'shipping_last_name' => 'required',
+            'shipping_address' => 'required',
+            'shipping_city' => 'required',
+            'shipping_state' => 'required',
+            'shipping_postal_code' => 'required',
+            'shipping_country' => 'required',
+        ]);
+
         if (Cart::count() == 0) {
             return redirect('/');
         }

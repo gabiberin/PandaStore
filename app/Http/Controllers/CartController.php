@@ -37,6 +37,10 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'product_id' => 'required',
+        ]);
+
         $product = Product::find($request->input('product_id'));
         if ( ! isset($product) ) {
             return redirect('/cart')->with('error', 'Could not add the product to cart, invalid product.');
